@@ -26,10 +26,15 @@ const App = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    console.log('use effect aaya bhai')
     const params = new URLSearchParams(window ? window.location.search : {});
+    console.log('params aare')
     const upi = params.get("upi").replace('%40', '@');
     const rname = params.get("pn");
-    setUrl("upi://pay?cu=INR&pa=" + upi + "&pn=" + rname);
+    const upiURL = `upi://pay?cu=INR&pa=${upi}&pn=${rname}`;
+    // https://ishaanpatel-r.github.io/mewt-qr/?upi=mewttest5027316@yesbank&pn=mewt
+    console.log(upiURL, 'bhaaaaaaaaaai');
+    setUrl(upiURL);
   }, []);
 
   useEffect(() => {
