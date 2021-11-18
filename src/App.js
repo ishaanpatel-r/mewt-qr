@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window ? window.location.search : {});
-    const upi = params.get("upi");
+    const upi = params.get("upi").replace('%40', '@');
     const rname = params.get("pn");
     setUrl("upi://pay?cu=INR&pa=" + upi + "&pn=" + rname);
   }, []);
